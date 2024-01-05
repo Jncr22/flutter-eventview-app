@@ -45,7 +45,7 @@ class RegistrationScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Aquí va la lógica de registro
-                context.goNamed('home');
+                context.goNamed('lobby');
                 //Navigator.pushReplacementNamed(context, '/home');
               },
               child: const Text('Registrarse'),              

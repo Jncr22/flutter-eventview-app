@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Aquí va la lógica de inicio de sesión
-                context.goNamed('home');
+                context.goNamed('lobby');
               },
               child: const Text('Iniciar sesión'),
             ),
