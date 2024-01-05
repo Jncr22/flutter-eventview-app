@@ -6,9 +6,9 @@ import '../../presentation/screens.dart';
 final appRouter = GoRouter(
   routes: [
     GoRoute(
-      name: 'home',
-      path: '/home',
-      builder: (context, state) => const HomeScreen(),
+      name: 'lobby',
+      path: '/lobby',
+      builder: (context, state) =>  const LobyScreen(),
     ),
      GoRoute(
       name: 'signIn',
