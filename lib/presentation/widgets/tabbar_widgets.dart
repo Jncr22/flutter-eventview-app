@@ -1,3 +1,4 @@
+import 'package:eventview_application_1/presentation/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:eventview_application_1/presentation/screens.dart';
 
@@ -13,23 +14,28 @@ class WidgetOptions {
     const MensaView(),
     Scaffold(
       appBar: AppBar(
+        title: const Align(
+          alignment: Alignment.center,
+          child: LogoView(fontSize: 24.0,
+          ),
+        ),
         bottom: TabBar(
           controller: tabController,
           tabs: const [
-            Tab(icon: Icon(Icons.directions_car)),
-            Tab(icon: Icon(Icons.directions_transit)),
-            Tab(icon: Icon(Icons.directions_bike)),
-            Tab(icon: Icon(Icons.directions_boat)),
-          ],
+            Tab(icon: Icon(Icons.directions_car),text: 'Eventos',),
+            Tab(icon: Icon(Icons.directions_transit),text: 'Eventos'),
+            Tab(icon: Icon(Icons.directions_bike),text: 'Eventos'),
+            Tab(icon: Icon(Icons.directions_boat),text: 'Eventos'),
+          ],indicatorColor: Colors.white,labelColor: Colors.white,
         ),
       ),
       body: TabBarView(
         controller: tabController,
         children: const [
-          NewsNotice(), // Replace with your own screen
-          EventsView(), // Replace with your own screen
-          StoreView(), // Replace with your own screen
-          CircleWord(), // Replace with your own screen
+          NewsNotice(), 
+          EventsView(),
+          StoreView(), 
+          CircleWord(), 
         ],
       ),
     ),
