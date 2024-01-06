@@ -11,8 +11,13 @@ final appRouter = GoRouter(
       builder: (context, state) =>  const LobyScreen(),
     ),
      GoRoute(
-      name: 'signIn',
+      name: 'start',
       path: '/',
+      builder: (context, state) => const StartView(),
+    ),
+     GoRoute(
+      name: 'signIn',
+      path: '/logIn',
       builder: (context, state) => LoginScreen(),
     ),
      GoRoute(
