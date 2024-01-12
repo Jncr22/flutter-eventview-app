@@ -1,3 +1,12 @@
+export 'package:eventview_application_1/presentation/screens/student/home_student_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/tabscreenstudents/word_student_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/tabscreenstudents/wordshop_student_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/tabscreenstudents/new_student_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/tabscreenstudents/event_student_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/msg_student_screen.dart';
+export 'package:eventview_application_1/presentation/widgets/tabbar_widgets_student.dart';
+export 'package:eventview_application_1/presentation/screens/student/lobby_screen_student.dart';
+
 export 'package:eventview_application_1/presentation/screens/start_screen.dart';
 
 export 'package:eventview_application_1/presentation/screens/teacher/msg_screen.dart';
