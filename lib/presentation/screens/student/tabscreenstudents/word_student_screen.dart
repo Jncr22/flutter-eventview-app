@@ -5,6 +5,6 @@ class WordViewStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('word student'),);
+    return Container(child: const Text('word student'),);
   }
 }

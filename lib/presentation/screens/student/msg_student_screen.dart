@@ -5,6 +5,6 @@ class MensaViewStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('Mensaje student'),);
+    return Container(child: const Text('Mensaje student'),);
   }
 }

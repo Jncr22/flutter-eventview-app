@@ -5,6 +5,6 @@ class EvenViewStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('Eventos studiante'),);
+    return Container(child: const Text('Eventos studiante'),);
   }
 }

@@ -5,6 +5,6 @@ class NewsViewStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('noticias student'),);
+    return Container(child: const Text('noticias student'),);
   }
 }
