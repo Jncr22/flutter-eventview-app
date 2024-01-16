@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Aquí va la lógica de inicio de sesión
-                context.goNamed('lobbyStudent');
+                context.goNamed('lobby');
               },
               child: const Text('Iniciar sesión'),
             ),
@@ -44,3 +44,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+//no puedo modificar nada del login,registrese, start,tabbar widgets student, screen.dart, main dart.
