@@ -7,13 +7,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-        title: const Align(
-          alignment: Alignment.center,
-          child: LogoView(fontSize: 24.0,
-          ),
-          )
-        )
-      );
+    return Scaffold(
+        appBar: AppBar(
+            title: const Align(
+      alignment: Alignment.center,
+      child: LogoView(
+        fontSize: 24.0,
+      ),
+    )));
   }
 }
