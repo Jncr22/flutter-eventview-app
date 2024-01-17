@@ -21,10 +21,10 @@ class WidgetOptionsStudent {
         bottom: TabBar(
           controller: tabController,
           tabs: const [
-            Tab(icon: Icon(Icons.directions_car),text: 'Eventos',),
-            Tab(icon: Icon(Icons.directions_transit),text: 'Eventos'),
-            Tab(icon: Icon(Icons.directions_bike),text: 'Eventos'),
-            Tab(icon: Icon(Icons.directions_boat),text: 'Eventos'),
+            Tab(icon: Icon(Icons.campaign),text: 'Noticias',),
+            Tab(icon: Icon(Icons.edit_calendar),text: 'Eventos'),
+            Tab(icon: Icon(Icons.palette),text: 'Workshop'),
+            Tab(icon: Icon(Icons.public),text: 'Mundo'),
           ],indicatorColor: Colors.white,labelColor: Colors.white,
         ),
       ),

@@ -45,14 +45,14 @@ class _LobbyScreenStudent extends State<LobbyScreenStudent> with SingleTickerPro
          activeIcon: Icon(Icons.home,color: Colors.white),
        ),
        BottomNavigationBarItem(
-         icon: Icon(Icons.business),
+         icon: Icon(Icons.language),
          label: 'Post',
-         activeIcon: Icon(Icons.business,color: Colors.white),
+         activeIcon: Icon(Icons.language,color: Colors.white),
        ),
        BottomNavigationBarItem(
-         icon: Icon(Icons.school),
+         icon: Icon(Icons.email),
          label: 'Mensaje',
-         activeIcon: Icon(Icons.school,color: Colors.white),
+         activeIcon: Icon(Icons.email,color: Colors.white),
        ),
      ],
      currentIndex: _selectedIndex,
