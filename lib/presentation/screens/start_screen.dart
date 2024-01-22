@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class StartView extends StatelessWidget {
-  const StartView({Key? key}) : super(key: key);
+  const StartView({super.key});
 
   @override
   Widget build(BuildContext context) {
