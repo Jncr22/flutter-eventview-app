@@ -31,7 +31,7 @@ class WidgetOptionsStudent {
       body: TabBarView(
         controller: tabController,
         children: const [
-          NewsViewStudent(), 
+          NewsDetailsScreen(), 
           EvenViewStudent(),
           WordShopViewStudent(), 
           WordViewStudent(), 
