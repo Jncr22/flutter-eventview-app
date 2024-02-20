@@ -57,12 +57,16 @@ class _LobbyScreenStudent extends State<LobbyScreenStudent> with SingleTickerPro
      ],
      currentIndex: _selectedIndex,
      onTap: (index) {
-       setState(() {
-         _selectedIndex = index;
-       });
+        setState(() {
+              _selectedIndex = index;
+              // Si el ítem seleccionado es el que contiene las pestañas, actualiza el TabController
+              if (index ==  0) { // Asumiendo que el ítem  0 es el que contiene las pestañas
+                _tabController?.animateTo(index);
+              }
+      });
      },
    ),
- ),
- );
+   ),
+   );
  }
 }
