@@ -30,5 +30,10 @@ final appRouter = GoRouter(
       path: '/lobbyStudent',
       builder: (context, state) => const LobbyScreenStudent(),
     ),
+    GoRoute(
+      name: 'settings',
+      path: '/settings',
+      builder: (context, state) => const SettingStudent(),
+    ),
   ],
 );
