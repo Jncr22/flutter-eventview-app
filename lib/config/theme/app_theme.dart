@@ -27,8 +27,12 @@ class AppTheme {
      selectedItemColor: Colors.white, // Color del ítem seleccionado
      unselectedItemColor: Colors.black, // Color de los ítems no seleccionados
    ),
- );
-
- 
- 
+ ); 
 }
+
+const linearGradient = LinearGradient(
+  colors: [Color(0xffffbd59), Color(0xfff0dd9a)],
+  stops: [0.2,  0.5],
+  begin: Alignment.topRight,
+  end: Alignment.bottomLeft,
+);
