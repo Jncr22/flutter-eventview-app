@@ -27,7 +27,7 @@ class SettingStudent extends StatelessWidget {
                         child: IconButton(
                           icon: const Icon(Icons.arrow_back_sharp),
                           onPressed:() {
-                      context.goNamed('settings');
+                      context.goNamed('');
                       } ,
                         )
                       ),
@@ -46,7 +46,7 @@ class SettingStudent extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Aquí va la lógica de inicio de sesión
-                      context.goNamed('google');
+                      context.goNamed('camera');
                     },
                     child: const Icon(Icons.camera_alt),
                   ),
