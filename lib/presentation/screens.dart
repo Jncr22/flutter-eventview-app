@@ -1,5 +1,7 @@
 
 
+export 'package:eventview_application_1/presentation/screens/student/settings/camerastudent.dart';
+
 export 'package:eventview_application_1/presentation/screens/student/settings/setting_students.dart';
 
 export 'package:eventview_application_1/presentation/widgets/components/iconsbuttondownbar.dart';
