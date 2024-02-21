@@ -35,5 +35,10 @@ final appRouter = GoRouter(
       path: '/settings',
       builder: (context, state) => const SettingStudent(),
     ),
+    GoRoute(
+      name: 'camera',
+      path: '/camera',
+      builder: (context, state) => const CameraScreen(),
+    ),
   ],
 );
