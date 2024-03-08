@@ -15,8 +15,7 @@ class WidgetOptionsStudent {
       appBar: AppBar(
         title: const Align(
           alignment: Alignment.center,
-          child: LogoView(fontSize: 24.0,
-          ),
+          child: LogoView()
         ),
         bottom: TabBar(
           controller: tabController,

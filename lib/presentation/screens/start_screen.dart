@@ -1,6 +1,6 @@
 import 'package:eventview_application_1/presentation/screens.dart';
-import 'package:eventview_application_1/presentation/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class StartView extends StatelessWidget {
@@ -19,14 +19,10 @@ class StartView extends StatelessWidget {
                 Center(
                   child: Transform.translate(
                     offset: const Offset(
-                        0, -150), // Mueve el logo 150px hacia arriba
-                    child: const Align(
-                      alignment: Alignment.center,
-                      child: LogoView(
-                        fontSize: 50.0, // Tamaño de la fuente para el logo
-                        textColor: Colors.black, // Color del texto para el logo
-                        // No es necesario especificar el color del punto (dotColor) si quieres que sea amarillo por defecto
-                      ),
+                        0, -90), // Mueve el logo 150px hacia arriba
+                    child:  Align(
+                      alignment: Alignment.topCenter,
+                      child: SvgPicture.asset('assets/svg/logo.svg'),
                     ),
                   ),
                 ),
