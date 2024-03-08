@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TextFieldCustom extends StatelessWidget {
-  final String labelText; // Texto del label
+  final String labelText;
   final String? hintText;
   final double? fontSize;
   final Color? textColor;
@@ -13,7 +13,7 @@ class TextFieldCustom extends StatelessWidget {
 
   const TextFieldCustom({
     super.key,
-    required this.labelText, // El label es requerido
+    required this.labelText,
     this.hintText,
     this.fontSize,
     this.textColor = Colors.black,
@@ -27,8 +27,7 @@ class TextFieldCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment:
-          CrossAxisAlignment.start, // Alinea los elementos a la izquierda
+      crossAxisAlignment:CrossAxisAlignment.start, // Alinea los elementos a la izquierda
       children: [
         Text(
           labelText,
@@ -37,11 +36,10 @@ class TextFieldCustom extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(
-            height: 8.0), // Espacio entre el label y el campo de texto
-        ConstrainedBox(
-          constraints: constraints ?? const BoxConstraints(),
+        const SizedBox(height: 4.0), // Espacio entre el label y el campo de texto
+        ConstrainedBox(constraints: constraints ?? const BoxConstraints(),
           child: TextField(
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: textColor,
               fontSize: fontSize,
