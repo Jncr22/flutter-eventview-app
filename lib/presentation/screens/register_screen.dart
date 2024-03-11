@@ -1,18 +1,18 @@
+import 'package:eventview_application_1/auth_service.dart';
 import 'package:eventview_application_1/presentation/screens.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 
 class RegistrationScreen extends StatelessWidget {
-  final nameController = TextEditingController();
-  final lastNameController = TextEditingController();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+ final emailController = TextEditingController();
+ final passwordController = TextEditingController();
+  final AuthService _authService = AuthService();
 
-  RegistrationScreen({super.key});
+ RegistrationScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
+ @override
+ Widget build(BuildContext context) {
     return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -22,87 +22,52 @@ class RegistrationScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Nombre',
-                  hintText: 'Nombre',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.text
-                  ),
-                 const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Apellido',
-                  hintText: 'Primer Apellido',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.text
-                  ),
-                 const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Apellidos',
-                  hintText: 'Segundo Apellido',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.text
-                  ),
-                 const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Nomina/Matricula',
-                  hintText: 'Matricula',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.number
-                  ),
-                 const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Categoria',
-                  hintText: 'Elige una opcion',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.emailAddress
-                  ),
-                   const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Telefono',
-                  hintText: 'Telefono',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.number
-                  ),
-                   const SizedBox(height:  30.0), 
-                const TextFieldCustom(
-                  labelText: 'Correo',
-                  hintText: 'Matricula',
-                  fontSize:  16.0,
-                   constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.emailAddress
-                  ),
-                  const SizedBox(height:  16.0),           
-                 const TextFieldCustom(
-                  labelText: 'Contraseña',
-                  hintText: 'Contraseña',
-                  fontSize:  16.0,
-                  constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.visiblePassword,
-                  obscureText: true,
-                  ),
-                  const SizedBox(height:  16.0),           
-                 const TextFieldCustom(
-                  labelText: 'Contraseña',
-                  hintText: 'Contraseña',
-                  fontSize:  16.0,
-                  constraints: BoxConstraints(minWidth:  100, maxWidth:  350), // Define restricciones de tamaño
-                  keyboardType: TextInputType.visiblePassword,
-                  obscureText: true,
-                  ),
                 ElevatedButton(
-                  onPressed: () {
-                    // Aquí va la lógica de registro
-                    context.goNamed('lobby');
-                    //Navigator.pushReplacementNamed(context, '/home');
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red, // Cambia el color para diferenciarlo
+                      foregroundColor: Colors.white,
+                  ),
+                  onPressed: () async {
+                      UserCredential? userCredential = await _authService.signInWithGoogle();
+                      if (userCredential != null) {
+                        // Navegar a la pantalla principal después del inicio de sesión exitoso
+                        context.goNamed('lobby');
+                      }
                   },
-                  child: const Text('Registrarse'),              
+                  child: const Text('Iniciar sesión con Google'),
+                  ),
+                const SizedBox(height: 30.0),
+                TextFieldCustom(
+                 controller: emailController,
+                 labelText: 'Correo',
+                 hintText: 'Correo electrónico',
+                 fontSize: 16.0,
+                 constraints: BoxConstraints(minWidth: 100, maxWidth: 350),
+                 keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 16.0),
+                TextFieldCustom(
+                 controller: passwordController,
+                 labelText: 'Contraseña',
+                 hintText: 'Contraseña',
+                 fontSize: 16.0,
+                 constraints: BoxConstraints(minWidth: 100, maxWidth: 350),
+                 keyboardType: TextInputType.visiblePassword,
+                 obscureText: true,
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                 onPressed: () async {
+                    UserCredential? userCredential = await _authService.signUp(
+                      emailController.text,
+                      passwordController.text,
+                    );
+                    if (userCredential != null) {
+                      // Navegar a la pantalla principal después del registro exitoso
+                      context.goNamed('lobby');
+                    }
+                 },
+                 child: const Text('Registrarse'),
                 ),
               ],
             ),
@@ -110,5 +75,6 @@ class RegistrationScreen extends StatelessWidget {
         ),
       ),
     );
-  }
+ }
 }
+
