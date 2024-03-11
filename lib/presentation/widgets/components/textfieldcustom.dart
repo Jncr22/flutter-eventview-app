@@ -10,6 +10,7 @@ class TextFieldCustom extends StatelessWidget {
   final TextInputType? keyboardType;
   final BoxConstraints? constraints;
   final bool obscureText;
+  final TextEditingController? controller;
 
   const TextFieldCustom({
     super.key,
@@ -22,6 +23,7 @@ class TextFieldCustom extends StatelessWidget {
     this.keyboardType,
     this.constraints,
     this.obscureText = false,
+    this.controller,
   }) : assert(textColor != null && backgroundColor != null);
 
   @override
@@ -40,6 +42,7 @@ class TextFieldCustom extends StatelessWidget {
         ConstrainedBox(constraints: constraints ?? const BoxConstraints(),
           child: TextField(
             textAlign: TextAlign.center,
+            controller: controller,
             style: TextStyle(
               color: textColor,
               fontSize: fontSize,
