@@ -19,22 +19,6 @@ class SettingStudent extends StatelessWidget {
         ),
         body: Stack(
           children: [
-<<<<<<< HEAD
-             Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 6.0),
-                        child: IconButton(
-                          icon: const Icon(Icons.arrow_back_sharp),
-                          onPressed:() {
-                      context.goNamed('settings');
-                      } ,
-                        )
-                      ),
-                    ],
-                  ),
-=======
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -48,7 +32,6 @@ class SettingStudent extends StatelessWidget {
                     )),
               ],
             ),
->>>>>>> 81042d2f984f47eaaec50943218ff3f1a1108adf
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
