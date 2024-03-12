@@ -19,25 +19,23 @@ class SettingStudent extends StatelessWidget {
         ),
         body: Stack(
           children: [
-             Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 6.0),
-                        child: IconButton(
-                          icon: const Icon(Icons.arrow_back_sharp),
-                          onPressed:() {
-                      context.goNamed('');
-                      } ,
-                        )
-                      ),
-                    ],
-                  ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.only(right: 6.0),
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back_sharp),
+                      onPressed: () {
+                        context.goNamed('');
+                      },
+                    )),
+              ],
+            ),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                 
                   const Icon(Icons.account_circle_rounded, size: 200),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
