@@ -1,5 +1,9 @@
 
 
+export 'package:eventview_application_1/presentation/screens/student/settings/setting_account_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/settings/setting_profile_screen.dart';
+export 'package:eventview_application_1/presentation/screens/student/settings/setting_secure_screen.dart';
+
 export 'package:eventview_application_1/presentation/screens/student/settings/camerastudent.dart';
 
 export 'package:eventview_application_1/presentation/screens/student/settings/setting_students.dart';

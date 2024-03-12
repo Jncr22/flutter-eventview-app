@@ -40,5 +40,20 @@ final appRouter = GoRouter(
       path: '/camera',
       builder: (context, state) => const CameraScreen(),
     ),
+     GoRoute(
+      name: 'settingProfi',
+      path: '/settingProfi',
+      builder: (context, state) => const SettingProfileView(),
+    ),
+     GoRoute(
+      name: 'settingAccount',
+      path: '/settingAccount',
+      builder: (context, state) => const SettingAccountView(),
+    ),
+     GoRoute(
+      name: 'settingSecure',
+      path: '/settingSecure',
+      builder: (context, state) => const SettingSecureView(),
+    ),
   ],
 );
