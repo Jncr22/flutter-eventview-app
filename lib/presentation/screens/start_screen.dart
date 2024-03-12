@@ -17,13 +17,9 @@ class StartView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
-                  child: Transform.translate(
-                    offset: const Offset(
-                        0, -90), // Mueve el logo 150px hacia arriba
-                    child:  Align(
-                      alignment: Alignment.topCenter,
-                      child: SvgPicture.asset('assets/svg/logo.svg'),
-                    ),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: SvgPicture.asset('assets/svg/logo.svg'),
                   ),
                 ),
                 const SizedBox(height: 1), // Espacio entre el logo y el botón
