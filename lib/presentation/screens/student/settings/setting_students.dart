@@ -27,7 +27,7 @@ class SettingStudent extends StatelessWidget {
                         child: IconButton(
                           icon: const Icon(Icons.arrow_back_sharp),
                           onPressed:() {
-                      context.goNamed('');
+                      context.goNamed('settings');
                       } ,
                         )
                       ),
@@ -56,7 +56,7 @@ class SettingStudent extends StatelessWidget {
                     leadingIcon: Icons.account_circle_outlined,
                     trailingIcon: Icons.arrow_forward,
                     onPressed: () {
-                      context.goNamed('lobbyStudent');
+                      context.goNamed('settingProfi');
                       MainAxisAlignment.center;
                     },
                   ),
@@ -66,7 +66,7 @@ class SettingStudent extends StatelessWidget {
                     leadingIcon: Icons.mail,
                     trailingIcon: Icons.arrow_forward,
                     onPressed: () {
-                      context.goNamed('lobbyStudent');
+                      context.goNamed('settingAccount');
                       MainAxisAlignment.center;
                     },
                   ),
@@ -76,7 +76,7 @@ class SettingStudent extends StatelessWidget {
                     leadingIcon: Icons.security,
                     trailingIcon: Icons.arrow_forward,
                     onPressed: () {
-                      context.goNamed('lobbyStudent');
+                      context.goNamed('settingSecure');
                       MainAxisAlignment.center;
                     },
                   ),
