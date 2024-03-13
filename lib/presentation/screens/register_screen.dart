@@ -3,11 +3,14 @@ import 'package:eventview_application_1/presentation/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:validators/validators.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
+
 
 class RegistrationScreen extends StatelessWidget {
  final emailController = TextEditingController();
  final passwordController = TextEditingController();
-  final AuthService _authService = AuthService();
+ final AuthService _authService = AuthService();
 
  RegistrationScreen({super.key});
 
@@ -17,59 +20,95 @@ class RegistrationScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red, // Cambia el color para diferenciarlo
-                      foregroundColor: Colors.white,
+          padding: const EdgeInsets.all(30.0),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text('Crear cuenta',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              )),
+              const SizedBox(height:  20.0),
+                  ElevatedButton(
+                   style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red, // Cambia el color para diferenciarlo
+                        foregroundColor: Colors.white,
+                   ),
+                   onPressed: () async {
+                        UserCredential? userCredential = await _authService.signInWithGoogle();
+                        if (userCredential != null) {
+                          // Navegar a la pantalla principal después del inicio de sesión exitoso
+                          context.goNamed('lobby');
+                        }
+                   },
+                   child: const Text('Iniciar sesión con Google'),
+                   ),
+                  const SizedBox(height: 30.0),
+                  TextFieldCustom(
+                   controller: emailController,
+                   labelText: 'Correo',
+                   hintText: 'Correo electrónico',
+                   fontSize: 16.0,
+                   constraints: const BoxConstraints(minWidth: 100, maxWidth: 350),
+                   keyboardType: TextInputType.emailAddress,
                   ),
-                  onPressed: () async {
-                      UserCredential? userCredential = await _authService.signInWithGoogle();
-                      if (userCredential != null) {
-                        // Navegar a la pantalla principal después del inicio de sesión exitoso
-                        context.goNamed('lobby');
+                  const SizedBox(height: 16.0),
+                  TextFieldCustom(
+                   controller: passwordController,
+                   labelText: 'Contraseña',
+                   hintText: 'Contraseña',
+                   fontSize: 16.0,
+                   constraints: const BoxConstraints(minWidth: 100, maxWidth: 350),
+                   keyboardType: TextInputType.visiblePassword,
+                   obscureText: true,
+                  ),
+                  const SizedBox(height: 16.0),
+                  FlutterPwValidator(
+                    defaultColor: const Color.fromARGB(255, 0, 0, 0),
+                    controller: passwordController, // Utiliza el controller de tu contraseña
+                    successColor: const Color.fromARGB(255, 13, 255, 0),
+                    minLength: 8,
+                    uppercaseCharCount: 1,
+                    numericCharCount: 1,
+                    specialCharCount: 1,
+                    normalCharCount: 1,
+                    width: 250,
+                    height: 150,
+                    onSuccess: () {
+                        // Aquí puedes manejar lo que sucede cuando la contraseña es válida
+                    },
+                    onFail: () {
+                        // Aquí puedes manejar lo que sucede cuando la contraseña no es válida
+                    },
+                    ),
+                  ElevatedButton(
+                   onPressed: () async {
+                      if (isEmail(emailController.text)) {
+                        UserCredential? userCredential = await _authService.signUp(
+                          emailController.text,
+                          passwordController.text,
+                        );
+                        if (userCredential != null) {
+                          // Navegar a la pantalla principal después del registro exitoso
+                          context.goNamed('lobby');
+                        }
+                      } else {
+                        // Mostrar un mensaje de error si el correo electrónico no es válido
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Por favor, ingresa un correo electrónico válido.'),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
                       }
-                  },
-                  child: const Text('Iniciar sesión con Google'),
+                   },
+                   child: const Text('Registrarse'),
                   ),
-                const SizedBox(height: 30.0),
-                TextFieldCustom(
-                 controller: emailController,
-                 labelText: 'Correo',
-                 hintText: 'Correo electrónico',
-                 fontSize: 16.0,
-                 constraints: const BoxConstraints(minWidth: 100, maxWidth: 350),
-                 keyboardType: TextInputType.emailAddress,
-                ),
-                const SizedBox(height: 16.0),
-                TextFieldCustom(
-                 controller: passwordController,
-                 labelText: 'Contraseña',
-                 hintText: 'Contraseña',
-                 fontSize: 16.0,
-                 constraints: const BoxConstraints(minWidth: 100, maxWidth: 350),
-                 keyboardType: TextInputType.visiblePassword,
-                 obscureText: true,
-                ),
-                const SizedBox(height: 16.0),
-                ElevatedButton(
-                 onPressed: () async {
-                    UserCredential? userCredential = await _authService.signUp(
-                      emailController.text,
-                      passwordController.text,
-                    );
-                    if (userCredential != null) {
-                      // Navegar a la pantalla principal después del registro exitoso
-                      context.goNamed('lobby');
-                    }
-                 },
-                 child: const Text('Registrarse'),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -77,4 +116,5 @@ class RegistrationScreen extends StatelessWidget {
     );
  }
 }
+
 
