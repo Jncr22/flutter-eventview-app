@@ -14,7 +14,9 @@ class HomeStudentView extends StatelessWidget {
         title: const Align(
           alignment: Alignment.centerLeft,
           child: LogoView(),
-        ),
+        ),actions: <Widget>[
+            IconButton(onPressed: () => (), icon: const Icon(Icons.search),iconSize: 40.0,)
+          ],
       ),
       body: const Stack(
         children: [

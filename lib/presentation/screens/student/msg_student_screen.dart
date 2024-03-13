@@ -1,6 +1,8 @@
 import 'package:eventview_application_1/presentation/screens.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/logo_widget.dart';
+
 class MensaViewStudent extends StatelessWidget {
   const MensaViewStudent({super.key});
 
@@ -9,7 +11,13 @@ class MensaViewStudent extends StatelessWidget {
     return GradientBackground(
       child: Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(),
+      appBar: AppBar( 
+        title: const Align(
+          alignment: Alignment.centerLeft,
+          child: LogoView(),
+        ),actions: <Widget>[
+            IconButton(onPressed: () => (), icon: const Icon(Icons.search),iconSize: 40.0,)
+          ],),
       body: const Stack(
         children: [
             Column(

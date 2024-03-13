@@ -14,7 +14,12 @@ class WidgetOptionsStudent {
       const HomeStudentView(),
       Scaffold(
         appBar: AppBar(
-          title: const Align(alignment: Alignment.center, child: LogoView()),
+          title: const Align(
+            alignment: Alignment.centerLeft, 
+          child: LogoView()
+          ),actions: <Widget>[
+            IconButton(onPressed: () => (), icon: const Icon(Icons.search),iconSize: 40.0,)
+          ],
           bottom: TabBar(
             controller: tabController,
             tabs: const [
