@@ -1,5 +1,4 @@
 import 'package:eventview_application_1/presentation/screens.dart';
-import 'package:eventview_application_1/presentation/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,27 +10,26 @@ class SettingStudent extends StatelessWidget {
     return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: const Align(
-            alignment: Alignment.center,
-            child: LogoView(),
-          ),
+        appBar: AppBar( 
+          backgroundColor: Colors.transparent,
+          title: Align(child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text( 'Configuraciones',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  ),),
+                IconButton(color: Colors.black,
+                onPressed: (){
+                  context.goNamed('lobbyStudent');
+                }, icon:const Icon(Icons.arrow_back)),
+              ],
+            ),),
         ),
         body: Stack(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                    padding: const EdgeInsets.only(right: 6.0),
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back_sharp),
-                      onPressed: () {
-                        context.goNamed('');
-                      },
-                    )),
-              ],
-            ),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

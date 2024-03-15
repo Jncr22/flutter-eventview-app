@@ -80,7 +80,7 @@ class HomeStudentView extends StatelessWidget {
                       ),
                       TextFieldCustom(
                           labelText: '',
-                          hintText: 'TI 91',
+                          hintText: '250',
                           fontSize: 16.0,
                           constraints: BoxConstraints(
                               minWidth: 80,
