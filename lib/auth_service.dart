@@ -1,10 +1,12 @@
 // auth_service.dart
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthService {
  final FirebaseAuth _auth = FirebaseAuth.instance;
  final GoogleSignIn _googleSignIn = GoogleSignIn();
+ final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
  // Método para iniciar sesión
  Future<UserCredential?> signIn(String email, String password) async {
@@ -20,13 +22,20 @@ class AuthService {
     }
  }
 
- // Método para registrarse
- Future<UserCredential?> signUp(String email, String password) async {
+  // Método para registrarse
+ Future<UserCredential?> signUp(String email, String password, String name, String lastName, String category) async {
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      // Guarda la información adicional en Firestore
+      await _firestore.collection('users').doc(userCredential.user!.uid).set({
+        'name': name,
+        'lastName': lastName,
+        'email': email,
+        'category': category,
+      });
       return userCredential;
     } on FirebaseAuthException catch (e) {
       print(e.message);
