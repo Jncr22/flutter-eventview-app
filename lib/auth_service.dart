@@ -21,6 +21,15 @@ class AuthService {
       return null;
     }
   }
+   Future<String?> getUserCategory(String userId) async {
+    try {
+      DocumentSnapshot userDoc = await _firestore.collection('users').doc(userId).get();
+      return userDoc['category'];
+    } catch (e) {
+      print('Error al obtener la categoría del usuario: $e');
+      return null;
+    }
+ }
 
   // Método para registrarse
   Future<UserCredential?> signUp(String email, String password, String name,

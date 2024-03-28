@@ -49,8 +49,23 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       UserCredential? userCredential =
                           await _authService.signInWithGoogle();
                       if (userCredential != null) {
-                        // Navegar a la pantalla principal después del inicio de sesión exitoso
-                        context.goNamed('lobby');
+                        // Obtiene la categoría del usuario de Firestore
+                        String? category = await _authService
+                            .getUserCategory(userCredential.user!.uid);
+                        if (category != null) {
+                          // Navega a la pantalla principal según la categoría del usuario
+                          if (category == 'Alumno') {
+                            context.goNamed('lobbyStudent');
+                          } else if (category == 'Profesor') {
+                            context.goNamed('lobby');
+                          } else {
+                            print('Categoría de usuario desconocida');
+                            // Opcional: Navegar a una pantalla de error o de configuración
+                          }
+                        } else {
+                          print('No se pudo obtener la categoría del usuario');
+                          // Opcional: Navegar a una pantalla de error o de configuración
+                        }
                       }
                     },
                     child: const Text('Iniciar sesión con Google'),
@@ -156,8 +171,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           categoryNotifier.value,
                         );
                         if (userCredential != null) {
-                          // Navegar a la pantalla principal después del registro exitoso
-                          context.goNamed('lobby');
+                          // Obtiene la categoría del usuario de Firestore
+                          String? category = await _authService
+                              .getUserCategory(userCredential.user!.uid);
+                          if (category != null) {
+                            // Navega a la pantalla principal según la categoría del usuario
+                            if (category == 'Alumno') {
+                              context.goNamed('lobbyStudent');
+                            } else if (category == 'Profesor') {
+                              context.goNamed('lobby');
+                            } else {
+                              print('Categoría de usuario desconocida');
+                              // Opcional: Navegar a una pantalla de error o de configuración
+                            }
+                          } else {
+                            print(
+                                'No se pudo obtener la categoría del usuario');
+                            // Opcional: Navegar a una pantalla de error o de configuración
+                          }
                         }
                       } else {
                         // Mostrar un mensaje de error si el correo electrónico no es válido
