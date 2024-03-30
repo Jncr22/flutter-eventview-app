@@ -87,6 +87,7 @@ class _HomeStudentViewState extends State<HomeStudentView> {
 
                           const SizedBox(height: 12.0),
                           TextFieldCustom(
+                            readOnly: true,
                               labelText: 'Nombre',
                               hintText: _userData!['name'] ?? 'Nombre',
                               fontSize: 16.0,
@@ -99,14 +100,16 @@ class _HomeStudentViewState extends State<HomeStudentView> {
                             children: [
                               const SizedBox(),
                               TextFieldCustom(
+                                readOnly: true,
                                   labelText: 'Matricula',
-                                  hintText: _userData!['matricula'] ?? '99999',
+                                  hintText: _userData!['matriculaNomina'] ?? '99999',
                                   fontSize: 16.0,
                                   constraints: const BoxConstraints(
                                       minWidth: 100, maxWidth: 120),
                                   keyboardType: TextInputType.number),
                               const SizedBox(width: 80.0, height: 30.0),
                               TextFieldCustom(
+                                readOnly: true,
                                   labelText: 'Grupo',
                                   hintText: _userData!['grupo'] ?? 'TI 91',
                                   fontSize: 16.0,
@@ -129,6 +132,7 @@ class _HomeStudentViewState extends State<HomeStudentView> {
                                 ),
                               ),
                               TextFieldCustom(
+                                readOnly: true,
                                   labelText: '',
                                   hintText: _userData!['horasExtrariculares'] ??
                                       '250',
