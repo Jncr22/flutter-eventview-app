@@ -101,6 +101,8 @@ class AuthService {
     }
   }
 
+  //Actualizar perfil
+
   Future<void> updateProfilePicture(File imageFile) async {
     try {
       final ref = FirebaseStorage.instance
@@ -115,4 +117,19 @@ class AuthService {
       print('Error al actualizar la imagen de perfil: $e');
     }
   }
+
+  //Actualizar datos de usuario
+  Future<void> updateUserProfile(Map<String, dynamic> updates) async {
+    try {
+      await _firestore
+          .collection('users')
+          .doc(_auth.currentUser!.uid)
+          .update(updates);
+      print('Datos de perfil actualizados con éxito');
+    } catch (e) {
+      print('Error al actualizar los datos de perfil: $e');
+    }
+  }
+
+  
 }

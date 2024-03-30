@@ -11,6 +11,7 @@ class TextFieldCustom extends StatelessWidget {
   final BoxConstraints? constraints;
   final bool obscureText;
   final TextEditingController? controller;
+  final bool readOnly;
 
   const TextFieldCustom({
     super.key,
@@ -24,6 +25,7 @@ class TextFieldCustom extends StatelessWidget {
     this.constraints,
     this.obscureText = false,
     this.controller,
+    this.readOnly = false,
   }) : assert(textColor != null && backgroundColor != null);
 
   @override
@@ -61,7 +63,8 @@ class TextFieldCustom extends StatelessWidget {
                   ),
                 ),
             keyboardType: keyboardType ?? TextInputType.text,
-            obscureText: obscureText, // Asegúrate de que el texto esté oculto
+            obscureText: obscureText,
+            readOnly: readOnly, // Asegúrate de que el texto esté oculto
           ),
         ),
       ],
