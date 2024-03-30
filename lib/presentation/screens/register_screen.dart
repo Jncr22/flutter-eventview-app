@@ -7,7 +7,7 @@ import 'package:validators/validators.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  RegistrationScreen({Key? key}) : super(key: key);
+  const RegistrationScreen({super.key});
 
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();

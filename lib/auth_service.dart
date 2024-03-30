@@ -2,6 +2,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:io';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -21,15 +23,17 @@ class AuthService {
       return null;
     }
   }
-   Future<String?> getUserCategory(String userId) async {
+
+  Future<String?> getUserCategory(String userId) async {
     try {
-      DocumentSnapshot userDoc = await _firestore.collection('users').doc(userId).get();
+      DocumentSnapshot userDoc =
+          await _firestore.collection('users').doc(userId).get();
       return userDoc['category'];
     } catch (e) {
       print('Error al obtener la categoría del usuario: $e');
       return null;
     }
- }
+  }
 
   // Método para registrarse
   Future<UserCredential?> signUp(String email, String password, String name,
@@ -94,6 +98,21 @@ class AuthService {
     } catch (e) {
       print(e);
       return null;
+    }
+  }
+
+  Future<void> updateProfilePicture(File imageFile) async {
+    try {
+      final ref = FirebaseStorage.instance
+          .ref('profile_pictures/${_auth.currentUser!.uid}.jpg');
+      await ref.putFile(imageFile);
+      final imageUrl = await ref.getDownloadURL();
+      await _firestore.collection('users').doc(_auth.currentUser!.uid).update({
+        'profilePicture': imageUrl,
+      });
+      print('Imagen de perfil actualizada con éxito');
+    } catch (e) {
+      print('Error al actualizar la imagen de perfil: $e');
     }
   }
 }

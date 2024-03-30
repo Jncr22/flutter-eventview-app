@@ -11,7 +11,7 @@ class WidgetOptionsStudent {
 
   List<Widget> get options {
     return [
-      const HomeStudentView(),
+       const HomeStudentView(),
       Scaffold(
         appBar: AppBar(
           title: const Align(
