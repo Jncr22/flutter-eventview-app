@@ -86,13 +86,24 @@ class AuthService {
       String name = googleUser.displayName!.split(' ')[0];
       String lastName = googleUser.displayName!.split(' ')[1];
 
-      // Guarda la información adicional en Firestore
-      await _firestore.collection('users').doc(userCredential.user!.uid).set({
-        'name': name,
-        'lastName': lastName,
-        'email': userCredential.user!.email,
-        'category': 'Alumno', // Asigna la categoría de "Alumno" automáticamente
-      });
+      // Verifica si el usuario ya existe en Firestore
+      DocumentSnapshot userDoc = await _firestore
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .get();
+
+      // Si el usuario no existe, crea un nuevo documento
+      if (!userDoc.exists) {
+        await _firestore.collection('users').doc(userCredential.user!.uid).set({
+          'name': name,
+          'lastName': lastName,
+          'email': userCredential.user!.email,
+          'category':
+              'Alumno', // Asigna la categoría de "Alumno" automáticamente
+        });
+      }
+
+      // No actualizamos el nombre aquí, por lo que el nombre solo se establece una vez
 
       return userCredential;
     } catch (e) {
@@ -130,6 +141,4 @@ class AuthService {
       print('Error al actualizar los datos de perfil: $e');
     }
   }
-
-  
 }
