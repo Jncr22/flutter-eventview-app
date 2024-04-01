@@ -6,9 +6,10 @@ import 'package:go_router/go_router.dart';
 
 class SettingStudent extends StatefulWidget {
   const SettingStudent({super.key});
-    @override
+  @override
   _SettingStudent createState() => _SettingStudent();
 }
+
 class _SettingStudent extends State<SettingStudent> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   User? _user;
@@ -41,92 +42,95 @@ class _SettingStudent extends State<SettingStudent> {
     return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar( 
+        appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Align(child: Row(
+          title: Align(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text( 'Configuraciones',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  ),),
-                IconButton(color: Colors.black,
-                onPressed: (){
-                  context.goNamed('lobbyStudent');
-                }, icon:const Icon(Icons.arrow_back)),
+                const Text(
+                  'Configuraciones',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+                IconButton(
+                    color: Colors.black,
+                    onPressed: () {
+                      context.goNamed('lobbyStudent');
+                    },
+                    icon: const Icon(Icons.arrow_back)),
               ],
-            ),),
+            ),
+          ),
         ),
         body: _userData == null
-            ? const Center(
-                child:
-                    CircularProgressIndicator())
-        : Stack(
-          children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            ? const Center(child: CircularProgressIndicator())
+            : Stack(
                 children: [
-                  _userData!['profilePicture'] != null
-                              ? Image.network(
-                                  _userData!['profilePicture'],
-                                  width:
-                                      250, // Ajusta el tamaño según sea necesario
-                                  height:
-                                      250, // Ajusta el tamaño según sea necesario
-                                  fit: BoxFit.cover,
-                                )
-                              : const SizedBox
-                                  .shrink(),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue, // Color del botón
-                      foregroundColor: Colors.white,
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _userData!['profilePicture'] != null
+                            ? Image.network(
+                                _userData!['profilePicture'],
+                                width:
+                                    250, // Ajusta el tamaño según sea necesario
+                                height:
+                                    250, // Ajusta el tamaño según sea necesario
+                                fit: BoxFit.cover,
+                              )
+                            : const Icon(Icons.account_circle_sharp, size: 150),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue, // Color del botón
+                            foregroundColor: Colors.white,
+                          ),
+                          onPressed: () {
+                            // Aquí va la lógica de inicio de sesión
+                            context.goNamed('camera');
+                          },
+                          child: const Icon(Icons.camera_alt),
+                        ),
+                        const SizedBox(height: 30.0),
+                        RowElevatedButtonCustom(
+                          label: 'Perfil',
+                          leadingIcon: Icons.account_circle_outlined,
+                          trailingIcon: Icons.arrow_forward,
+                          onPressed: () {
+                            context.goNamed('settingProfi');
+                            MainAxisAlignment.center;
+                          },
+                        ),
+                        const SizedBox(height: 16.0),
+                        RowElevatedButtonCustom(
+                          label: 'Cuenta',
+                          leadingIcon: Icons.mail,
+                          trailingIcon: Icons.arrow_forward,
+                          onPressed: () {
+                            context.goNamed('settingAccount');
+                            MainAxisAlignment.center;
+                          },
+                        ),
+                        const SizedBox(height: 16.0),
+                        RowElevatedButtonCustom(
+                          label: 'Seguridad',
+                          leadingIcon: Icons.security,
+                          trailingIcon: Icons.arrow_forward,
+                          onPressed: () {
+                            context.goNamed('settingSecure');
+                            MainAxisAlignment.center;
+                          },
+                        ),
+                        const SizedBox(height: 16.0),
+                      ],
                     ),
-                    onPressed: () {
-                      // Aquí va la lógica de inicio de sesión
-                      context.goNamed('camera');
-                    },
-                    child: const Icon(Icons.camera_alt),
                   ),
-                  const SizedBox(height: 30.0),
-                  RowElevatedButtonCustom(
-                    label: 'Perfil',
-                    leadingIcon: Icons.account_circle_outlined,
-                    trailingIcon: Icons.arrow_forward,
-                    onPressed: () {
-                      context.goNamed('settingProfi');
-                      MainAxisAlignment.center;
-                    },
-                  ),
-                  const SizedBox(height: 16.0),
-                  RowElevatedButtonCustom(
-                    label: 'Cuenta',
-                    leadingIcon: Icons.mail,
-                    trailingIcon: Icons.arrow_forward,
-                    onPressed: () {
-                      context.goNamed('settingAccount');
-                      MainAxisAlignment.center;
-                    },
-                  ),
-                  const SizedBox(height: 16.0),
-                  RowElevatedButtonCustom(
-                    label: 'Seguridad',
-                    leadingIcon: Icons.security,
-                    trailingIcon: Icons.arrow_forward,
-                    onPressed: () {
-                      context.goNamed('settingSecure');
-                      MainAxisAlignment.center;
-                    },
-                  ),
-                  const SizedBox(height: 16.0),
                 ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

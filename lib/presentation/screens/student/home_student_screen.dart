@@ -72,7 +72,7 @@ class _HomeStudentViewState extends State<HomeStudentView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                           // Dentro de tu método build, donde intentas mostrar la imagen de perfil
+                          // Dentro de tu método build, donde intentas mostrar la imagen de perfil
                           _userData!['profilePicture'] != null
                               ? Image.network(
                                   _userData!['profilePicture'],
@@ -82,12 +82,12 @@ class _HomeStudentViewState extends State<HomeStudentView> {
                                       250, // Ajusta el tamaño según sea necesario
                                   fit: BoxFit.cover,
                                 )
-                              : const SizedBox
-                                  .shrink(), // O simplemente no mostrar nada
+                              : const Icon(Icons.account_circle_sharp,
+                                  size: 150), // O simplemente no mostrar nada
 
                           const SizedBox(height: 12.0),
                           TextFieldCustom(
-                            readOnly: true,
+                              readOnly: true,
                               labelText: 'Nombre',
                               hintText: _userData!['name'] ?? 'Nombre',
                               fontSize: 16.0,
@@ -100,16 +100,17 @@ class _HomeStudentViewState extends State<HomeStudentView> {
                             children: [
                               const SizedBox(),
                               TextFieldCustom(
-                                readOnly: true,
+                                  readOnly: true,
                                   labelText: 'Matricula',
-                                  hintText: _userData!['matriculaNomina'] ?? '99999',
+                                  hintText:
+                                      _userData!['matriculaNomina'] ?? '99999',
                                   fontSize: 16.0,
                                   constraints: const BoxConstraints(
                                       minWidth: 100, maxWidth: 120),
                                   keyboardType: TextInputType.number),
                               const SizedBox(width: 80.0, height: 30.0),
                               TextFieldCustom(
-                                readOnly: true,
+                                  readOnly: true,
                                   labelText: 'Grupo',
                                   hintText: _userData!['grupo'] ?? 'TI 91',
                                   fontSize: 16.0,
@@ -132,7 +133,7 @@ class _HomeStudentViewState extends State<HomeStudentView> {
                                 ),
                               ),
                               TextFieldCustom(
-                                readOnly: true,
+                                  readOnly: true,
                                   labelText: '',
                                   hintText: _userData!['horasExtrariculares'] ??
                                       '250',
