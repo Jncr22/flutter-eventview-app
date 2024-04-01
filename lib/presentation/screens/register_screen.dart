@@ -74,16 +74,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
-                  const SizedBox(height: 30.0),
-                  TextFieldCustom(
-                    controller: emailController,
-                    labelText: 'Correo',
-                    hintText: 'Correo electrónico',
-                    fontSize: 16.0,
-                    constraints:
-                        const BoxConstraints(minWidth: 100, maxWidth: 350),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
+                  
                   const SizedBox(height: 30.0),
                   TextFieldCustom(
                     controller: nameController,
@@ -96,8 +87,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const SizedBox(height: 30.0),
                   TextFieldCustom(
                     controller: lastNameController,
-                    labelText: 'Apellidos',
-                    hintText: 'Herrera Soto',
+                    labelText: 'Primer Apellido',
+                    hintText: 'Herrera',
                     fontSize: 16.0,
                     constraints:
                         const BoxConstraints(minWidth: 100, maxWidth: 350),
@@ -130,6 +121,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         }).toList(),
                       );
                     },
+                  ),
+                  const SizedBox(height: 10.0),
+                  TextFieldCustom(
+                    controller: emailController,
+                    labelText: 'Correo',
+                    hintText: 'Correo electrónico',
+                    fontSize: 16.0,
+                    constraints:
+                        const BoxConstraints(minWidth: 100, maxWidth: 350),
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 16.0),
                   TextFieldCustom(
