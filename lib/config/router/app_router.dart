@@ -48,7 +48,7 @@ final appRouter = GoRouter(
      GoRoute(
       name: 'settingAccount',
       path: '/settingAccount',
-      builder: (context, state) => SettingAccountView(),
+      builder: (context, state) => const SettingAccountView(),
     ),
      GoRoute(
       name: 'settingSecure',

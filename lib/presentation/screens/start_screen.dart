@@ -22,16 +22,17 @@ class StartView extends StatelessWidget {
                     child: SvgPicture.asset('assets/svg/logo.svg'),
                   ),
                 ),
-                const SizedBox(height: 1), // Espacio entre el logo y el botón
+                const SizedBox(height: 8), // Espacio entre el logo y el botón
                 const CircleAvatar(
                   radius: 120, // Cambia el tamaño de la imagen redonda
-                  backgroundImage: AssetImage('assets/images/image_start_movil.jpg'), // Reemplaza 'assets/tu_imagen.png' con la ruta de tu imagen
+                  backgroundImage: AssetImage(
+                      'assets/images/image_start_movil.jpg'), // Reemplaza 'assets/tu_imagen.png' con la ruta de tu imagen
                 ),
                 const SizedBox(
-                    height: 10), // Espacio entre la imagen y el botón
+                    height: 15), // Espacio entre la imagen y el botón
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue, // Color del botón
+                    backgroundColor: const Color.fromRGBO(15, 22, 81, 1),
                     foregroundColor: Colors.white,
                   ),
                   onPressed: () {

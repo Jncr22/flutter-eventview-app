@@ -27,12 +27,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(35.0),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  const SizedBox(height: 35.0),
                   const Text('Crear cuenta',
                       style: TextStyle(
                         fontSize: 20,
@@ -41,8 +42,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const SizedBox(height: 20.0),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.red, // Cambia el color para diferenciarlo
+                      backgroundColor: const Color.fromRGBO(
+                          15, 22, 81, 1), // Cambia el color para diferenciarlo
                       foregroundColor: Colors.white,
                     ),
                     onPressed: () async {
@@ -68,7 +69,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         }
                       }
                     },
-                    child: const Text('Iniciar sesión con Google'),
+                    child: const Text(
+                      'G',
+                      style: TextStyle(fontSize: 25),
+                    ),
                   ),
                   const SizedBox(height: 30.0),
                   TextFieldCustom(
@@ -158,8 +162,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       // Aquí puedes manejar lo que sucede cuando la contraseña no es válida
                     },
                   ),
-                  const SizedBox(height: 16.0),
+                  const SizedBox(height: 20.0),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(15, 22, 81, 1),
+                      foregroundColor: Colors.white,
+                    ),
                     onPressed: () async {
                       if (isEmail(emailController.text)) {
                         UserCredential? userCredential =
@@ -175,23 +183,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           String? category = await _authService
                               .getUserCategory(userCredential.user!.uid);
                           if (category != null) {
-                            // Navega a la pantalla principal según la categoría del usuario
                             if (category == 'Alumno') {
                               context.goNamed('lobbyStudent');
                             } else if (category == 'Profesor') {
                               context.goNamed('lobby');
                             } else {
-                              print('Categoría de usuario desconocida');
-                              // Opcional: Navegar a una pantalla de error o de configuración
+                              print('Categoría de usuario desconocida.');
                             }
                           } else {
                             print(
-                                'No se pudo obtener la categoría del usuario');
-                            // Opcional: Navegar a una pantalla de error o de configuración
+                                'No se pudo obtener la categoría del usuario.');
                           }
                         }
                       } else {
-                        // Mostrar un mensaje de error si el correo electrónico no es válido
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text(

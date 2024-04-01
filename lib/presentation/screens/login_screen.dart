@@ -64,8 +64,8 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 20.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      Colors.red, // Cambia el color para diferenciarlo
+                  backgroundColor: const Color.fromRGBO(
+                      15, 22, 81, 1), // Cambia el color para diferenciarlo
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () async {
@@ -91,7 +91,10 @@ class LoginScreen extends StatelessWidget {
                     }
                   }
                 },
-                child: const Text('Iniciar sesión con Google'),
+                child: const Text(
+                  'G',
+                  style: TextStyle(fontSize: 25),
+                ),
               ),
               const SizedBox(height: 20.0),
               TextFieldCustom(
@@ -115,13 +118,18 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 16.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: const Color.fromRGBO(15, 22, 81, 1),
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () => _signIn(context),
                 child: const Text('Iniciar sesión'),
               ),
-              TextButton(
+              const SizedBox(height: 16.0),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(15, 22, 81, 1),
+                  foregroundColor: Colors.white,
+                ),
                 onPressed: () {
                   context.goNamed('register');
                 },
