@@ -5,6 +5,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 
+/* poner al inicio para hacer test: 
+class AuthService {
+ final FirebaseAuth _auth;
+ final GoogleSignIn _googleSignIn;
+ final FirebaseFirestore _firestore;
+
+ AuthService({
+    FirebaseAuth? auth,
+    GoogleSignIn? googleSignIn,
+    FirebaseFirestore? firestore,
+ }) : _auth = auth ?? FirebaseAuth.instance,
+        _googleSignIn = googleSignIn ?? GoogleSignIn(),
+        _firestore = firestore ?? FirebaseFirestore.instance;*/
+
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();

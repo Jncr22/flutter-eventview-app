@@ -15,8 +15,10 @@ class SettingProfileView extends StatefulWidget {
 class _SettingProfileViewState extends State<SettingProfileView> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
-  final TextEditingController _secondSurnameController = TextEditingController();
-  final TextEditingController _matriculaNominaController = TextEditingController();
+  final TextEditingController _secondSurnameController =
+      TextEditingController();
+  final TextEditingController _matriculaNominaController =
+      TextEditingController();
   final TextEditingController _grupoController = TextEditingController();
 
   Map<String, dynamic>? _userData;
@@ -77,63 +79,64 @@ class _SettingProfileViewState extends State<SettingProfileView> {
               )
             : Stack(
                 children: [
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 16.0),
-                        TextFieldCustom(
-                          controller: _nameController,
-                          labelText: 'Nombre',
-                          hintText: _userData!['name'] ?? 'Lorem ipsum',
-                          fontSize: 16.0,
-                          constraints: const BoxConstraints(
-                              minWidth: 100, maxWidth: 350),
-                        ),
-                        const SizedBox(height: 16.0),
-                        TextFieldCustom(
-                          controller: _lastNameController,
-                          labelText: 'Primer Apellido',
-                          hintText: _userData!['lastName'] ?? 'Lorem ipsum',
-                          fontSize: 16.0,
-                          constraints: const BoxConstraints(
-                              minWidth: 100, maxWidth: 350),
-                        ),
-                        const SizedBox(height: 16.0),
-                        TextFieldCustom(
-                          controller: _secondSurnameController,
-                          labelText: 'Segundo Apellido',
-                          hintText:
-                              _userData!['secondName'] ?? 'Lorem ipsum',
-                          fontSize: 16.0,
-                          constraints: const BoxConstraints(
-                              minWidth: 100, maxWidth: 350),
-                        ),
-                        const SizedBox(height: 16.0),
-                        TextFieldCustom(
-                          controller: _matriculaNominaController,
-                          labelText: 'Matricula/Nomina',
-                          hintText:
-                              _userData!['matriculaNomina'] ?? 'Lorem ipsum',
-                          fontSize: 16.0,
-                          constraints: const BoxConstraints(
-                              minWidth: 100, maxWidth: 350),
-                        ),
-                        const SizedBox(height: 16.0),
-                        TextFieldCustom(
-                          controller: _grupoController,
-                          labelText: 'Grupo',
-                          hintText: _userData!['grupo'] ?? 'Lorem ipsum',
-                          fontSize: 16.0,
-                          constraints: const BoxConstraints(
-                              minWidth: 100, maxWidth: 350),
-                        ),
-                        const SizedBox(height: 16.0),
-                        ElevatedButton(
-                          onPressed: () => _updateUserProfile(),
-                          child: const Text('Guardar cambios'),
-                        ),
-                      ],
+                  SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 16.0),
+                          TextFieldCustom(
+                            controller: _nameController,
+                            labelText: 'Nombre',
+                            hintText: _userData!['name'] ?? 'Lorem ipsum',
+                            fontSize: 16.0,
+                            constraints: const BoxConstraints(
+                                minWidth: 100, maxWidth: 350),
+                          ),
+                          const SizedBox(height: 16.0),
+                          TextFieldCustom(
+                            controller: _lastNameController,
+                            labelText: 'Primer Apellido',
+                            hintText: _userData!['lastName'] ?? 'Lorem ipsum',
+                            fontSize: 16.0,
+                            constraints: const BoxConstraints(
+                                minWidth: 100, maxWidth: 350),
+                          ),
+                          const SizedBox(height: 16.0),
+                          TextFieldCustom(
+                            controller: _secondSurnameController,
+                            labelText: 'Segundo Apellido',
+                            hintText: _userData!['secondName'] ?? 'Lorem ipsum',
+                            fontSize: 16.0,
+                            constraints: const BoxConstraints(
+                                minWidth: 100, maxWidth: 350),
+                          ),
+                          const SizedBox(height: 16.0),
+                          TextFieldCustom(
+                            controller: _matriculaNominaController,
+                            labelText: 'Matricula/Nomina',
+                            hintText:
+                                _userData!['matriculaNomina'] ?? 'Lorem ipsum',
+                            fontSize: 16.0,
+                            constraints: const BoxConstraints(
+                                minWidth: 100, maxWidth: 350),
+                          ),
+                          const SizedBox(height: 16.0),
+                          TextFieldCustom(
+                            controller: _grupoController,
+                            labelText: 'Grupo',
+                            hintText: _userData!['grupo'] ?? 'Lorem ipsum',
+                            fontSize: 16.0,
+                            constraints: const BoxConstraints(
+                                minWidth: 100, maxWidth: 350),
+                          ),
+                          const SizedBox(height: 16.0),
+                          ElevatedButton(
+                            onPressed: () => _updateUserProfile(),
+                            child: const Text('Guardar cambios'),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
