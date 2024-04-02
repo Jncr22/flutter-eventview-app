@@ -53,7 +53,17 @@ class CameraScreenState extends State<CameraScreen> {
       await Directory(dirPath).create(recursive: true);
       final String filePath = '$dirPath/${timestamp()}.jpg';
 
+      // Copia la imagen al directorio de la aplicación
       await image.saveTo(filePath);
+
+      // Verifica si el contexto sigue siendo válido antes de mostrar el SnackBar
+      if (mounted) {
+        // Opcional: Muestra un mensaje de éxito
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Imagen guardada, por favor espere')),
+        );
+      }
 
       // Sube la imagen a Firebase Storage
       final ref =
