@@ -129,6 +129,10 @@ class _SettingAccountViewState extends State<SettingAccountView> {
 
     if (updates.isNotEmpty) {
       AuthService().updateUserProfile(updates);
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Datos actualizados.')),
+        );
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
