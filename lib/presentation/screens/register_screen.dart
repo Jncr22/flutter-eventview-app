@@ -60,11 +60,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           } else if (category == 'Profesor') {
                             context.goNamed('lobby');
                           } else {
-                            print('Categoría de usuario desconocida');
+                            //print('Categoría de usuario desconocida');
                             // Opcional: Navegar a una pantalla de error o de configuración
                           }
                         } else {
-                          print('No se pudo obtener la categoría del usuario');
+                          //print('No se pudo obtener la categoría del usuario');
                           // Opcional: Navegar a una pantalla de error o de configuración
                         }
                       }
@@ -189,18 +189,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             } else if (category == 'Profesor') {
                               context.goNamed('lobby');
                             } else {
-                              print('Categoría de usuario desconocida.');
+                              //print('Categoría de usuario desconocida.');
                             }
                           } else {
-                            print(
-                                'No se pudo obtener la categoría del usuario.');
+                            //print(
+                            //    'No se pudo obtener la categoría del usuario.');
                           }
                         }
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text(
-                                'Por favor, ingresa un correo electrónico válido.'),
+                                'Por favor, ingresa un todo los datos.'),
                             duration: Duration(seconds: 2),
                           ),
                         );

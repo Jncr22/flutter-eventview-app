@@ -136,6 +136,11 @@ class _SettingProfileViewState extends State<SettingProfileView> {
                           ),
                           const SizedBox(height: 16.0),
                           ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromRGBO(15, 22, 81, 1),
+                              foregroundColor: Colors.white,
+                            ),
                             onPressed: () => _updateUserProfile(),
                             child: const Text('Guardar cambios'),
                           ),

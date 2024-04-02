@@ -31,17 +31,21 @@ class LoginScreen extends StatelessWidget {
           } else if (category == 'Profesor') {
             context.goNamed('lobby');
           } else {
-            print('Categoría de usuario desconocida');
+            //print('Categoría de usuario desconocida');
           }
         } else {
-          print('No se pudo obtener la categoría del usuario');
+          //print('No se pudo obtener la categoría del usuario');
         }
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No se encontró ningún usuario con ese correo electrónico.');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No se encontró ningún usuario con ese correo electrónico.')),
+        );
       } else if (e.code == 'wrong-password') {
-        print('La contraseña proporcionada es incorrecta.');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('La contraseña proporcionada es incorrecta.')),
+        );
       }
     }
   }
@@ -82,11 +86,11 @@ class LoginScreen extends StatelessWidget {
                       } else if (category == 'Profesor') {
                         context.goNamed('lobby');
                       } else {
-                        print('Categoría de usuario desconocida');
+                        //print('Categoría de usuario desconocida');
                         // Opcional: Navegar a una pantalla de error o de configuración
                       }
                     } else {
-                      print('No se pudo obtener la categoría del usuario');
+                      //print('No se pudo obtener la categoría del usuario');
                       // Opcional: Navegar a una pantalla de error o de configuración
                     }
                   }
@@ -134,12 +138,6 @@ class LoginScreen extends StatelessWidget {
                   context.goNamed('register');
                 },
                 child: const Text('Registrarse'),
-              ),
-              TextButton(
-                onPressed: () {
-                  context.goNamed('lobbyStudent');
-                },
-                child: const Text('Estudiante'),
               ),
             ],
           ),
