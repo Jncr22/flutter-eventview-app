@@ -5,24 +5,25 @@ import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:firebase_storage/firebase_storage.dart'; // Asegúrate de que la ruta sea correcta
 import 'dart:io';
-class CameraScreen extends StatefulWidget {
- const CameraScreen({super.key});
 
- @override
- _CameraScreenState createState() => _CameraScreenState();
+class CameraScreen extends StatefulWidget {
+  const CameraScreen({super.key});
+
+  @override
+  CameraScreenState createState() => CameraScreenState();
 }
 
-class _CameraScreenState extends State<CameraScreen> {
- late CameraController _controller;
- late Future<void> _initializeControllerFuture;
+class CameraScreenState extends State<CameraScreen> {
+  late CameraController _controller;
+  late Future<void> _initializeControllerFuture;
 
- @override
- void initState() {
+  @override
+  void initState() {
     super.initState();
     _initializeControllerFuture = _initializeCamera();
- }
+  }
 
- Future<void> _initializeCamera() async {
+  Future<void> _initializeCamera() async {
     final cameras = await availableCameras();
     final firstCamera = cameras.first;
 
@@ -32,17 +33,17 @@ class _CameraScreenState extends State<CameraScreen> {
     );
 
     return _controller.initialize();
- }
+  }
 
- @override
- void dispose() {
+  @override
+  void dispose() {
     _controller.dispose();
     super.dispose();
- }
+  }
 
- String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
+  String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
- Future<void> _takePictureAndUpload() async {
+  Future<void> _takePictureAndUpload() async {
     try {
       await _initializeControllerFuture;
       final image = await _controller.takePicture();
@@ -55,20 +56,29 @@ class _CameraScreenState extends State<CameraScreen> {
       await image.saveTo(filePath);
 
       // Sube la imagen a Firebase Storage
-      final ref = FirebaseStorage.instance.ref('profile_pictures/${timestamp()}.jpg');
+      final ref =
+          FirebaseStorage.instance.ref('profile_pictures/${timestamp()}.jpg');
       await ref.putFile(File(filePath));
 
       // Actualiza la imagen de perfil en Firestore
       await AuthService().updateProfilePicture(File(filePath));
-
-      print('Imagen subida y perfil actualizado con éxito');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Imagen subida y perfil actualizado con éxito')),
+        );
+      }
     } catch (e) {
-      print(e);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al guardar la imagen: $e')),
+        );
+      }
     }
- }
+  }
 
- @override
- Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Camera Screen'),
@@ -92,5 +102,5 @@ class _CameraScreenState extends State<CameraScreen> {
         child: const Icon(Icons.camera),
       ),
     );
- }
+  }
 }

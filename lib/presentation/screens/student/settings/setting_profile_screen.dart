@@ -42,7 +42,11 @@ class _SettingProfileViewState extends State<SettingProfileView> {
         });
       }
     } catch (e) {
-      print('Error al obtener los datos del usuario: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al obtener los datos del usuario: $e')),
+        );
+      }
     }
   }
 
@@ -167,7 +171,12 @@ class _SettingProfileViewState extends State<SettingProfileView> {
     if (updates.isNotEmpty) {
       AuthService().updateUserProfile(updates);
     } else {
-      print('No se encontraron cambios para actualizar.');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('No se encontraron cambios para actualizar.')),
+        );
+      }
     }
   }
 }

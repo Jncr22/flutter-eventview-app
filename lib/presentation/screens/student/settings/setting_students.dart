@@ -31,9 +31,13 @@ class _SettingStudent extends State<SettingStudent> {
       setState(() {
         _userData = userDoc.data() as Map<String, dynamic>?;
       });
-      print('Datos del usuario: $_userData'); // Agrega esta línea para depurar
+      //print('Datos del usuario: $_userData'); // Agrega esta línea para depurar
     } catch (e) {
-      print('Error al obtener los datos del usuario: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al obtener los datos del usuario: $e')),
+        );
+      }
     }
   }
 
