@@ -35,24 +35,24 @@ class _LobbyScreenStudent extends State<LobbyScreenStudent> with SingleTickerPro
     data: Theme.of(context).copyWith(
      canvasColor: const Color.fromRGBO(15, 22, 81, 1), // Fondo de la BottomNavigationBar
      primaryColor: Colors.white, // Color del ítem seleccionado
+     indicatorColor: Colors.white,
      //textTheme: Theme.of(context).textTheme.copyWith(caption: const TextStyle(color: Colors.white)), // Color de los ítems no seleccionados
     ),
     child: BottomNavigationBar(
+      unselectedItemColor: Colors.grey,
      items: const <BottomNavigationBarItem>[
        BottomNavigationBarItem(
          icon: Icon(Icons.home),
          label: 'Home',
-         activeIcon: Icon(Icons.home,color: Colors.white),
+         
        ),
        BottomNavigationBarItem(
          icon: Icon(Icons.language),
          label: 'Post',
-         activeIcon: Icon(Icons.language,color: Colors.white),
        ),
        BottomNavigationBarItem(
          icon: Icon(Icons.email),
          label: 'Mensaje',
-         activeIcon: Icon(Icons.email,color: Colors.white),
        ),
      ],
      currentIndex: _selectedIndex,

@@ -20,6 +20,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final lastNameController = TextEditingController();
   final categoryNotifier = ValueNotifier<String>('Alumno');
   final AuthService _authService = AuthService();
+  
+  @override
+  void dispose() {
+  emailController.dispose();
+  passwordController.dispose();
+  nameController.dispose();
+  lastNameController.dispose();
+  super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,10 +111,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         icon: const Icon(Icons.arrow_downward),
                         iconSize: 24,
                         elevation: 16,
-                        style: const TextStyle(color: Colors.deepPurple),
+                        style: const TextStyle(color: Colors.black),
                         underline: Container(
                           height: 2,
-                          color: Colors.deepPurpleAccent,
+                          color: const Color.fromRGBO(15, 22, 81, 1),
                         ),
                         onChanged: (String? newValue) {
                           if (newValue != null) {

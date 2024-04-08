@@ -40,7 +40,7 @@ class EvenViewStudent extends StatelessWidget {
                   ]
                 ),
                 child: Card(
-                  color: Colors.blue,
+                  color: const Color.fromRGBO(15, 22, 81, 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0), // Asegúrate de que la tarjeta tenga bordes redondeados
                   ),
