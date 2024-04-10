@@ -209,7 +209,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text(
-                                'Por favor, ingresa un todo los datos.'),
+                                'Por favor, ingresa los datos.'),
                             duration: Duration(seconds: 2),
                           ),
                         );
