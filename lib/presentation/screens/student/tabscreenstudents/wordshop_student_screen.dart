@@ -50,7 +50,7 @@ class WordShopViewStudent extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: const BorderRadius.vertical(top: Radius.circular(10.0)),
-                        child: Image.asset('assets/images/theme_deportes.jpg',
+                        child: Image.network('https://firebasestorage.googleapis.com/v0/b/eventview-app.appspot.com/o/events%2Fworkshop.jpg?alt=media&token=f57b9c1c-92a5-4cbb-a6f2-012bbb8f96bd',
                         fit: BoxFit.cover,
                         width: double.infinity,
                         height:   200,
