@@ -90,7 +90,7 @@ class _SettingTeacher extends State<SettingTeacher> {
                             : const Icon(Icons.account_circle_sharp, size: 150),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue, // Color del botón
+                            backgroundColor: const Color.fromRGBO(15, 22, 81, 1), // Color del botón
                             foregroundColor: Colors.white,
                           ),
                           onPressed: () {
