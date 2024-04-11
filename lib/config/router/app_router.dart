@@ -36,9 +36,19 @@ final appRouter = GoRouter(
       builder: (context, state) => const SettingStudent(),
     ),
     GoRoute(
+      name: 'settingsTeach',
+      path: '/settingsTeach',
+      builder: (context, state) => const SettingTeacher(),
+    ),
+    GoRoute(
       name: 'camera',
       path: '/camera',
       builder: (context, state) => const CameraScreen(),
+    ),
+    GoRoute(
+      name: 'cameraTeacher',
+      path: '/cameraTeacher',
+      builder: (context, state) => const CameraTeacherScreen(),
     ),
      GoRoute(
       name: 'settingProfi',
@@ -46,14 +56,29 @@ final appRouter = GoRouter(
       builder: (context, state) => const SettingProfileView(),
     ),
      GoRoute(
+      name: 'settingProfileTeacher',
+      path: '/settingProfileTeacher',
+      builder: (context, state) => const SettingProfileTeacherView(),
+    ),
+     GoRoute(
       name: 'settingAccount',
       path: '/settingAccount',
       builder: (context, state) => const SettingAccountView(),
+    ),
+    GoRoute(
+      name: 'settingAccountTeacher',
+      path: '/settingAccountTeacher',
+      builder: (context, state) => const SettingAccountTeacherView(),
     ),
      GoRoute(
       name: 'settingSecure',
       path: '/settingSecure',
       builder: (context, state) => const SettingSecureView(),
+    ),
+    GoRoute(
+      name: 'settingSecureTeacher',
+      path: '/settingSecureTeacher',
+      builder: (context, state) => const SettingSecureTeacherView(),
     ),
   ],
 );

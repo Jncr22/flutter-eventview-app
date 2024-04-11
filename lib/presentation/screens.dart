@@ -1,5 +1,11 @@
 
 
+export 'package:eventview_application_1/presentation/screens/teacher/settings/setting_secure_teacher_screen.dart';
+export 'package:eventview_application_1/presentation/screens/teacher/settings/setting_profile_teacher_screen.dart';
+export 'package:eventview_application_1/presentation/screens/teacher/settings/setting_account_teacher_screen.dart';
+export 'package:eventview_application_1/presentation/screens/teacher/settings/camerateacher.dart';
+export 'package:eventview_application_1/presentation/screens/teacher/settings/setting_teacher.dart';
+
 export 'package:eventview_application_1/presentation/screens/student/settings/setting_account_screen.dart';
 export 'package:eventview_application_1/presentation/screens/student/settings/setting_profile_screen.dart';
 export 'package:eventview_application_1/presentation/screens/student/settings/setting_secure_screen.dart';
