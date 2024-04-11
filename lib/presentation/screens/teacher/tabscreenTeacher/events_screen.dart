@@ -40,7 +40,7 @@ class EventsView extends StatelessWidget {
                             offset: const Offset(0, 3))
                       ]),
                   child: Card(
-                    color: Colors.blue,
+                    color: const Color.fromRGBO(15, 22, 81, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           10.0), // Asegúrate de que la tarjeta tenga bordes redondeados
@@ -51,8 +51,8 @@ class EventsView extends StatelessWidget {
                         ClipRRect(
                           borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(10.0)),
-                          child: Image.asset(
-                            'assets/images/theme_eventos.jpg',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/eventview-app.appspot.com/o/events%2Fevents.jpg?alt=media&token=63b354bf-83ad-4eb2-aeec-f6cbd3e7fa56',
                             fit: BoxFit.cover,
                             width: double.infinity,
                             height: 200,

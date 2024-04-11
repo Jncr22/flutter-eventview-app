@@ -41,6 +41,7 @@ class _LobyScreen extends State<LobyScreen>
           //textTheme: Theme.of(context).textTheme.copyWith(caption: const TextStyle(color: Colors.white)), // Color de los ítems no seleccionados
         ),
         child: BottomNavigationBar(
+      unselectedItemColor: Colors.grey,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

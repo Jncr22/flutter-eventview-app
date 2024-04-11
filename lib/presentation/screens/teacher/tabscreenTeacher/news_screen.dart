@@ -39,7 +39,7 @@ class NewsNotice extends StatelessWidget {
                             offset: const Offset(0, 3))
                       ]),
                   child: Card(
-                    color: Colors.blue,
+                    color: const Color.fromRGBO(15, 22, 81, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           10.0), // Asegúrate de que la tarjeta tenga bordes redondeados
@@ -50,8 +50,8 @@ class NewsNotice extends StatelessWidget {
                         ClipRRect(
                           borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(10.0)),
-                          child: Image.asset(
-                            'assets/images/theme_noticias.jpg',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/eventview-app.appspot.com/o/events%2Fnoticias.jpg?alt=media&token=857bc306-97da-48f1-9758-029a0c7dfe9a',
                             fit: BoxFit.cover,
                             width: double.infinity,
                             height: 200,
