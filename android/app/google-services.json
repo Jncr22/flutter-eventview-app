@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "964066754594",
+    "project_id": "eventview-app",
+    "storage_bucket": "eventview-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964066754594:android:4532c617b0dbd04c514a7b",
+        "android_client_info": {
+          "package_name": "com.example.eventview_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJWcI3Sa_gi8V_9aM8xpcHz2vxI1plfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

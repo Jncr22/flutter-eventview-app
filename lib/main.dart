@@ -1,7 +1,20 @@
-import 'package:eventview_application_1/presentation/screens/home_screen.dart';
+import 'package:eventview_application_1/config/router/app_router.dart';
+import 'package:eventview_application_1/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-void main() {
-  runApp(const MyApp());
+import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+void main()  async {
+    WidgetsFlutterBinding.ensureInitialized();//para evitar la rotacio de la aplicacion
+    await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -10,9 +23,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp.router(
+      routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      theme: AppTheme(selectedColor: 0).getTheme(),
     );
   }
 }
