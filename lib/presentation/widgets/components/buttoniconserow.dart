@@ -22,9 +22,9 @@ class RowElevatedButtonCustom extends StatelessWidget {
       constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width *  0.8), // Limita el ancho al  80% del ancho de la pantalla
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.transparent),
-          shadowColor: MaterialStateProperty.all(Colors.transparent),
-          elevation: MaterialStateProperty.all(0),
+          backgroundColor: WidgetStateProperty.all(Colors.transparent),
+          shadowColor: WidgetStateProperty.all(Colors.transparent),
+          elevation: WidgetStateProperty.all(0),
         ),
         onPressed: onPressed,
         child: Padding(
